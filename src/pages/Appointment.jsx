@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AppContext } from "../context/AppContext";
 import { assets } from "../assets/assets";
-// import RelatedDoctors from "../components/RelatedDoctors";
+import RelatedDoctors from "../component/RelatedDoctors";
 import { toast } from "react-toastify";
 import axios from "axios";
 
@@ -66,11 +66,19 @@ const Appointment = () => {
         const slotDate = day + "_" + month + "_" + year;
         const slotTime = formattedTime;
 
-        const isSlotAvailable =
+        /*const isSlotAvailable =
           docInfo.slots_booked[slotDate] &&
           docInfo.slots_booked[slotDate].includes(slotTime)
             ? false
+            : true;*/
+
+        const isSlotAvailable =
+          docInfo?.slots_booked?.[slotDate]?.includes(slotTime)
+            ? false
             : true;
+
+
+
 
         if (isSlotAvailable) {
           // add slot to array
@@ -188,11 +196,10 @@ const Appointment = () => {
               docSlots.map((item, index) => (
                 <div
                   onClick={() => setSlotIndex(index)}
-                  className={`text-center py-6 min-w-16 rounded-full cursor-pointer ${
-                    slotIndex === index
+                  className={`text-center py-6 min-w-16 rounded-full cursor-pointer ${slotIndex === index
                       ? "bg-primary text-white"
                       : "border border-gray-200"
-                  }`}
+                    }`}
                   key={index}
                 >
                   <p>{item[0] && daysOfWeek[item[0].datetime.getDay()]}</p>
@@ -206,11 +213,10 @@ const Appointment = () => {
               docSlots[slotIndex].map((item, index) => (
                 <p
                   onClick={() => setSlotTime(item.time)}
-                  className={`text-sm font-light flex-shrink-0 px-5 py-2 rounded-full cursor-pointer ${
-                    item.time === slotTime
+                  className={`text-sm font-light flex-shrink-0 px-5 py-2 rounded-full cursor-pointer ${item.time === slotTime
                       ? "bg-primary text-white"
                       : "text-gray-400 border border-gray-300"
-                  }`}
+                    }`}
                   key={index}
                 >
                   {item.time.toLowerCase()}

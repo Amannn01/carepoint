@@ -1,4 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap');
+
 @import "tailwindcss";
+*{
+  font-family: Outfit;
+}
 
 .active hr{
     @apply block
@@ -11,4 +16,13 @@
   .active p {
     @apply text-white bg-primary;
   }
-} */
+} *
+
+
+/*                   // github code upload code 
+1. git add .
+2. git status
+3. git commit -m "changes"
+4. git push
+5. git push --set-upstream origin main
+*/

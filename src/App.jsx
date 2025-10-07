@@ -1,7 +1,7 @@
 import React from 'react'
 import { Route, Routes } from 'react-router-dom'
 import Home from './pages/Home'
-import Docter from './pages/Docter'
+import Doctors from './pages/Doctors'
 import Login from './pages/Login'
 import About from './pages/About'
 import Contact from './pages/Contact'
@@ -18,17 +18,32 @@ const App = () => {
     <div className='mx-4 sm:mx-[10%]'>
       <ToastContainer />
       <Navbar/>
-      <Routes>
+      {/* <Routes>
         <Route path='/' element={<Home />}/>
-        <Route path='/doctor' element={<Docter />}/>
-        <Route path='./doctor/:speciality'element={<Docter/>}/>
+        <Route path='/doctor' element={<Doctors />}/>
+        <Route path='./doctor/:speciality'element={<Doctors/>}/>
         <Route path='./login'element={<Login/>}/>
         <Route path='./about'element={<About/>}/>
         <Route path='./contact'element={<Contact/>}/>
         <Route path='./my-profile'element={<Myprofile/>}/>
         <Route path='./my-appointment'element={<Myappointment/>}/>
         <Route path='./appointment/:docId'element={<Appointment/>}/>
-      </Routes>
+      </Routes> */}
+
+      <Routes>
+  <Route path="/" element={<Home />} />
+  <Route path="/doctors" element={<Doctors />} />
+  <Route path="/doctors/:speciality" element={<Doctors />} />
+  
+  <Route path="/login" element={<Login />} />
+  <Route path="/about" element={<About />} />
+  <Route path="/contact" element={<Contact />} />
+  <Route path="/my-profile" element={<Myprofile />} />
+  <Route path="/my-appointment" element={<Myappointment />} />
+  <Route path="/appointment/:docId" element={<Appointment />} />
+</Routes>
+
+
       <Footer/>
       </div>
   )
