@@ -5,6 +5,7 @@ import { doctors } from "../assets/assets";
 
 export const AppContext =createContext()
     const AppContextProvide =(props)=>{
+        const currencySymbol='₹ && $'
         const value={
             doctors
         }

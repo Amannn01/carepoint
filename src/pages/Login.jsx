@@ -98,8 +98,8 @@ const Login = () => {
         </div>
         <button
           type="submit"
-          className="bg-primary text-white w-full py-2 rounded-md text-base"
-        >
+          className="bg-indigo-500 text-white w-full py-2 rounded-md text-base"
+        > button
           {state === "Sign Up" ? "Create Account" : "Login"}
         </button>
         {state === "Sign Up" ? (
